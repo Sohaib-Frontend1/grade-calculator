@@ -4,8 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="images/icon.jpg" type="image/jpg" />
+  <link rel="icon" href="images/icon.png" type="image/jpg" />
   <title>حاسبة الدرجات</title>
+  
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="حاسبة درجات ذكية وسريعة لطلاب الأزهر والتعليم العام. احسب مجموعك، نسبتك المئوية، واحفظ نتيجتك كصورة بكل سهولة ومجاناً." />
+    <meta name="keywords" content="حاسبة الدرجات, حساب النسبة المئوية, الأزهر, التعليم العام, نتيجة, درجات, حاسبة درجات" />
+    
+    <!-- Open Graph / Social Media (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="حاسبة الدرجات - لطلاب الأزهر والتعليم العام" />
+    <meta property="og:description" content="احسب نتيجتك بسهولة، واعرف نسبتك المئوية، واحفظ النتيجة كصورة لمشاركتها مع أصدقائك." />
+    <meta property="og:image" content="images/share.jpg" />
+    <meta property="og:url" content="https://sohaib-frontend1.github.io/grade-calculator/" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="حاسبة الدرجات - لطلاب الأزهر والتعليم العام" />
+    <meta name="twitter:description" content="احسب نتيجتك بسهولة، واعرف نسبتك المئوية، واحفظ النتيجة كصورة لمشاركتها مع أصدقائك." />
+    <meta name="twitter:image" content="images/share.jpg" />
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,16 +37,22 @@
 
 <body>
   <div class="app-wrapper">
+    <header class="main-header">
+      <div class="logo">
+        <div class="img-cntr"><img src="images/logo.png" alt="logo"></div>
+      <h1>حاسبة الدرجات</h1>
+      </div>
+      <div class="btns">
     <button class="theme-toggle" onclick="toggleTheme()" title="تبديل الوضع الليلي/النهاري">
       <img src="images/sun.svg" alt="theme" id="themeIcon">
     </button>
     <button class="settings-toggle" onclick="openSettingsModal()" title="الإعدادات">
       <img src="images/cog.svg" alt="settings">
     </button>
+    </div>
+</header>
 
     <div class="container" id="mainContainer">
-      <h1>حاسبة الدرجات</h1>
-
       <div class="tabs" id="mainTabs"></div>
       <div id="tabContents"></div>
 
