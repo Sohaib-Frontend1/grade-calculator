@@ -1,156 +1,229 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/icon.png" type="image/jpg" />
+    <title>حاسبة الدرجات</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="images/icon.png" type="image/jpg" />
-  <title>حاسبة الدرجات</title>
-  
     <!-- SEO Meta Tags -->
-    <meta name="description" content="حاسبة درجات ذكية وسريعة لطلاب الأزهر والتعليم العام والبكالوريا. احسب مجموعك، نسبتك المئوية، واحفظ نتيجتك كصورة بكل سهولة ومجاناً." />
-    <meta name="keywords" content="حاسبة الدرجات, حساب النسبة المئوية, الأزهر, التعليم العام, نتيجة, درجات, حاسبة درجات, البكالوريا" />
-    
+    <meta
+      name="description"
+      content="حاسبة درجات ذكية وسريعة لطلاب الأزهر والتعليم العام والبكالوريا. احسب مجموعك، نسبتك المئوية، واحفظ نتيجتك كصورة بكل سهولة ومجاناً."
+    />
+    <meta
+      name="keywords"
+      content="حاسبة الدرجات, حساب النسبة المئوية, الأزهر, التعليم العام, نتيجة, درجات, حاسبة درجات, البكالوريا"
+    />
+
     <!-- Open Graph / Social Media (Facebook, WhatsApp, LinkedIn) -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="حاسبة الدرجات - لطلاب الأزهر والتعليم العام والبكالوريا" />
-    <meta property="og:description" content="احسب نتيجتك بسهولة، واعرف نسبتك المئوية، واحفظ النتيجة كصورة لمشاركتها مع أصدقائك." />
+    <meta
+      property="og:title"
+      content="حاسبة الدرجات - لطلاب الأزهر والتعليم العام والبكالوريا"
+    />
+    <meta
+      property="og:description"
+      content="احسب نتيجتك بسهولة، واعرف نسبتك المئوية، واحفظ النتيجة كصورة لمشاركتها مع أصدقائك."
+    />
     <meta property="og:image" content="images/share.jpg" />
-    <meta property="og:url" content="https://sohaib-frontend1.github.io/grade-calculator/" />
-    
+    <meta
+      property="og:url"
+      content="https://sohaib-frontend1.github.io/grade-calculator/"
+    />
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="حاسبة الدرجات - لطلاب الأزهر والتعليم العام والبكالوريا" />
-    <meta name="twitter:description" content="احسب نتيجتك بسهولة، واعرف نسبتك المئوية، واحفظ النتيجة كصورة لمشاركتها مع أصدقائك." />
+    <meta
+      name="twitter:title"
+      content="حاسبة الدرجات - لطلاب الأزهر والتعليم العام والبكالوريا"
+    />
+    <meta
+      name="twitter:description"
+      content="احسب نتيجتك بسهولة، واعرف نسبتك المئوية، واحفظ النتيجة كصورة لمشاركتها مع أصدقائك."
+    />
     <meta name="twitter:image" content="images/share.jpg" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css" />
 
-  <link rel="stylesheet" href="styles/style.css" />
+    <!-- مكتبة html2canvas لتحويل عناصر DOM إلى صور -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  </head>
 
-  <!-- مكتبة html2canvas لتحويل عناصر DOM إلى صور -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-</head>
+  <body>
+    <div class="app-wrapper">
+      <header class="main-header">
+        <div class="logo">
+          <div class="img-cntr"><img src="images/logo.png" alt="logo" /></div>
+          <h1>حاسبة الدرجات</h1>
+        </div>
+        <div class="btns">
+          <button
+            class="theme-toggle"
+            onclick="toggleTheme()"
+            title="تبديل الوضع الليلي/النهاري"
+          >
+            <img src="images/sun.svg" alt="theme" id="themeIcon" />
+          </button>
+          <button
+            class="settings-toggle"
+            onclick="openSettingsModal()"
+            title="الإعدادات"
+          >
+            <img src="images/cog.svg" alt="settings" />
+          </button>
 
-<body>
-  <div class="app-wrapper">
-    <header class="main-header">
-      <div class="logo">
-        <div class="img-cntr"><img src="images/logo.png" alt="logo"></div>
-      <h1>حاسبة الدرجات</h1>
-      </div>
-      <div class="btns">
-    <button class="theme-toggle" onclick="toggleTheme()" title="تبديل الوضع الليلي/النهاري">
-      <img src="images/sun.svg" alt="theme" id="themeIcon">
-    </button>
-    <button class="settings-toggle" onclick="openSettingsModal()" title="الإعدادات">
-      <img src="images/cog.svg" alt="settings">
-    </button>
-    </div>
-</header>
+          <a
+            href="information.md"
+            target="_blank"
+            class="settings-toggle"
+          >
+            <img src="images/question-circle.svg" alt="تعليمات" />
+          </a>
+        </div>
+      </header>
 
-    <div class="container" id="mainContainer">
-      <div class="tabs" id="mainTabs"></div>
-      <div id="tabContents"></div>
+      <div class="container" id="mainContainer">
+        <div class="tabs" id="mainTabs"></div>
+        <div id="tabContents"></div>
 
-      <button class="calculate-btn" onclick="calculate()">احسب النسبة</button>
+        <button class="calculate-btn" onclick="calculate()">احسب النسبة</button>
 
-      <div id="result" class="result">
-        <h2>النتيجة</h2>
-        <p id="result-text"></p>
-        <div id="grade-message" class="grade-message"></div>
-        <div id="grades-table-container"></div>
-        <div class="progress-bar">
-          <div id="progress-fill" class="progress-fill" style="width: 0%;"></div>
+        <div id="result" class="result">
+          <h2>النتيجة</h2>
+          <p id="result-text"></p>
+          <div id="grade-message" class="grade-message"></div>
+          <div id="grades-table-container"></div>
+          <div class="progress-bar">
+            <div
+              id="progress-fill"
+              class="progress-fill"
+              style="width: 0%"
+            ></div>
+          </div>
+
+          <div class="result-buttons">
+            <button class="action-btn print-btn" onclick="printFullResult()">
+              <img src="images/print.svg" alt="" class="svg-img" />
+              <span>طباعة</span>
+            </button>
+            <button class="action-btn share-btn" onclick="shareAsImage(event)">
+              <img src="images/share-from-square.svg" alt="" class="svg-img" />
+              <span>مشاركة كصورة</span>
+            </button>
+            <button
+              class="action-btn print-table-btn"
+              onclick="printTableOnly()"
+            >
+              <img src="images/table-cells.svg" alt="" class="svg-img" />
+              <span>طباعة كجدول</span>
+            </button>
+            <button
+              class="action-btn save-table-btn"
+              onclick="saveTableAsImage(event)"
+            >
+              <img src="images/image.svg" alt="" class="svg-img" />
+              <span>حفظ الجدول كصورة</span>
+            </button>
+          </div>
         </div>
 
-        <div class="result-buttons">
-          <button class="action-btn print-btn" onclick="printFullResult()">
-            <img src="images/print.svg" alt="" class="svg-img">
-            <span>طباعة</span>
-          </button>
-          <button class="action-btn share-btn" onclick="shareAsImage(event)">
-            <img src="images/share-from-square.svg" alt="" class="svg-img">
-            <span>مشاركة كصورة</span>
-          </button>
-          <button class="action-btn print-table-btn" onclick="printTableOnly()">
-            <img src="images/table-cells.svg" alt="" class="svg-img">
-            <span>طباعة كجدول</span>
-          </button>
-          <button class="action-btn save-table-btn" onclick="saveTableAsImage(event)">
-            <img src="images/image.svg" alt="" class="svg-img">
-            <span>حفظ الجدول كصورة</span>
+        <div id="tablePrintArea" style="display: none"></div>
+      </div>
+    </div>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <h3 id="modal-title">إضافة مادة</h3>
+        <label for="subject-name">اسم المادة:</label>
+        <input type="text" id="subject-name" placeholder="اسم المادة" />
+        <label for="subject-max">الدرجة الكاملة:</label>
+        <input
+          type="number"
+          id="subject-max"
+          placeholder="الدرجة الكاملة"
+          min="0"
+          step="any"
+        />
+        <div class="modal-buttons">
+          <button class="modal-btn save" onclick="saveSubject()">حفظ</button>
+          <button class="modal-btn cancel" onclick="closeModal()">إلغاء</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="confirmModal" class="modal">
+      <div class="modal-content">
+        <h3>تأكيد الحذف</h3>
+        <p id="confirmMessage">متأكد أنك تريد حذف هذه المادة؟</p>
+        <div class="modal-buttons">
+          <button class="modal-btn danger" id="confirmYes">حذف</button>
+          <button class="modal-btn cancel" id="confirmNo">إلغاء</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="alertModal" class="modal">
+      <div class="modal-content">
+        <h3>تنبيه</h3>
+        <p id="alertMessage"></p>
+        <div class="modal-buttons">
+          <button class="modal-btn save" onclick="closeAlertModal()">
+            حسناً
           </button>
         </div>
       </div>
-
-      <div id="tablePrintArea" style="display: none;"></div>
     </div>
-  </div>
 
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <h3 id="modal-title">إضافة مادة</h3>
-      <label for="subject-name">اسم المادة:</label>
-      <input type="text" id="subject-name" placeholder="اسم المادة">
-      <label for="subject-max">الدرجة الكاملة:</label>
-      <input type="number" id="subject-max" placeholder="الدرجة الكاملة" min="0" step="any">
-      <div class="modal-buttons">
-        <button class="modal-btn save" onclick="saveSubject()">حفظ</button>
-        <button class="modal-btn cancel" onclick="closeModal()">إلغاء</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="confirmModal" class="modal">
-    <div class="modal-content">
-      <h3>تأكيد الحذف</h3>
-      <p id="confirmMessage">متأكد أنك تريد حذف هذه المادة؟</p>
-      <div class="modal-buttons">
-        <button class="modal-btn danger" id="confirmYes">حذف</button>
-        <button class="modal-btn cancel" id="confirmNo">إلغاء</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="alertModal" class="modal">
-    <div class="modal-content">
-      <h3>تنبيه</h3>
-      <p id="alertMessage"></p>
-      <div class="modal-buttons">
-        <button class="modal-btn save" onclick="closeAlertModal()">حسناً</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="settingsModal" class="modal" style="z-index: 999">
-    <div class="modal-content">
-      <h3>الإعدادات</h3>
-      <div class="settings-section">
-        <label for="passPercentInput">درجة النجاح %:</label>
-        <input type="number" id="passPercentInput" value="50" min="0" max="100" step="1">
-      </div>
-      <div class="settings-section">
-        <label>إدارة الأقسام</label>
-        <div class="sections-list" id="settingsSectionsList"></div>
-        <div class="section-row">
-          <input type="text" id="newSectionInput" placeholder="اسم القسم الجديد">
-          <button class="modal-btn save plus-add" onclick="addSectionFromSettings()">
-            <img src="images/add.svg" alt="إضافة" class="add-new-sec-img" />
+    <div id="settingsModal" class="modal" style="z-index: 999">
+      <div class="modal-content">
+        <h3>الإعدادات</h3>
+        <div class="settings-section">
+          <label for="passPercentInput">درجة النجاح %:</label>
+          <input
+            type="number"
+            id="passPercentInput"
+            value="50"
+            min="0"
+            max="100"
+            step="1"
+          />
+        </div>
+        <div class="settings-section">
+          <label>إدارة الأقسام</label>
+          <div class="sections-list" id="settingsSectionsList"></div>
+          <div class="section-row">
+            <input
+              type="text"
+              id="newSectionInput"
+              placeholder="اسم القسم الجديد"
+            />
+            <button
+              class="modal-btn save plus-add"
+              onclick="addSectionFromSettings()"
+            >
+              <img src="images/add.svg" alt="إضافة" class="add-new-sec-img" />
+            </button>
+          </div>
+        </div>
+        <div class="modal-buttons">
+          <button class="modal-btn save" onclick="saveSettings()">
+            حفظ الإعدادات
+          </button>
+          <button class="modal-btn cancel" onclick="closeSettingsModal()">
+            إلغاء
           </button>
         </div>
       </div>
-      <div class="modal-buttons">
-        <button class="modal-btn save" onclick="saveSettings()">حفظ الإعدادات</button>
-        <button class="modal-btn cancel" onclick="closeSettingsModal()">إلغاء</button>
-      </div>
     </div>
-  </div>
 
-  <script src="scripts/script.js"></script>
-</body>
-
+    <script src="scripts/script.js"></script>
+  </body>
 </html>
