@@ -80,13 +80,13 @@
             <img src="images/cog.svg" alt="settings" />
           </button>
 
-          <a
-            href="information.md"
-            target="_blank"
-            class="settings-toggle"
+          <button
+            class="help-toggle"
+            onclick="openHelpModal()"
+            title="دليل الاستخدام"
           >
-            <img src="images/question-circle.svg" alt="تعليمات" />
-          </a>
+            <img src="images/help.svg" alt="help" />
+          </button>
         </div>
       </header>
 
@@ -219,6 +219,60 @@
           </button>
           <button class="modal-btn cancel" onclick="closeSettingsModal()">
             إلغاء
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal التعليمات -->
+    <div id="helpModal" class="modal">
+      <div class="modal-content help-content">
+        <h3>دليل الاستخدام</h3>
+        <button onclick="closeHelpModal()" class="close-help-btn delete-btn">
+          <img src="images/close.svg" alt="إغلاق" />
+        </button>
+        <div class="help-body">
+          <p>
+            يهدف هذا التطبيق إلى مساعدة الطلاب في حساب المجموع الكلي والنسبة
+            المئوية بسهولة وبدون الحاجة إلى اتصال بالإنترنت.
+          </p>
+
+          <h4>القسم الافتراضي</h4>
+          <p>
+            تنبيه هام: المواد الافتراضية في قسم "الأزهر" معدة خصيصاً لمنهج
+            <strong>الصف الأول الثانوي (علمي) - دفعة 2024/2025</strong>.
+          </p>
+
+          <h4>تخصيص المواد للصفوف الأخرى</h4>
+          <p><strong>الخيار الأول: تعديل القائمة الافتراضية</strong></p>
+          <ol>
+            <li>احذف المواد التي لا تدرسها بالضغط على الزر الأحمر.</li>
+            <li>عدّل الدرجات العظمى للمواد المشتركة بالضغط على الزر الأخضر.</li>
+            <li>أضف المواد الناقصة بالضغط على زر "إضافة مادة".</li>
+          </ol>
+
+          <p><strong>الخيار الثاني: إنشاء قسم جديد</strong></p>
+          <ol>
+            <li>افتح الإعدادات (أيقونة الترس).</li>
+            <li>اكتب اسم القسم الجديد في "إدارة الأقسام".</li>
+            <li>اضغط زر الإضافة (+).</li>
+            <li>اختر القسم الجديد وأضف مواده.</li>
+          </ol>
+
+          <h4>خطوات الاستخدام</h4>
+          <ol>
+            <li>اختر القسم والفصل الدراسي.</li>
+            <li>أدخل درجاتك في كل مادة.</li>
+            <li>اضغط "احسب النسبة".</li>
+            <li>احفظ النتيجة كصورة أو اطبعها.</li>
+          </ol>
+
+          <h4>الخصوصية</h4>
+          <p>جميع بياناتك محفوظة في متصفحك فقط ولا تُرسل لأي خادم خارجي.</p>
+        </div>
+        <div class="modal-buttons">
+          <button class="modal-btn save close-btn" onclick="closeHelpModal()">
+            إغلاق
           </button>
         </div>
       </div>

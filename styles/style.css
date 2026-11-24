@@ -8,11 +8,11 @@
   --input-border: #475569;
   --accent: #60a5fa;
   --accent-dark: #2563eb;
-  --danger: #dc2626;
-  --success: #059669;
+  --danger: #ff0000;
+  --success: #21cb9b;
   --shadow: rgba(0, 0, 0, 0.5);
   --modal-bg: rgba(0, 0, 0, 0.7);
-  font-size: clamp(15px, 0.6vw + 12px, 17px);
+  font-size: clamp(16px, 0.6vw + 12px, 17px);
 }
 
 .light-mode {
@@ -25,8 +25,8 @@
   --input-border: #94a3b8;
   --accent: #2563eb;
   --accent-dark: #1d4ed8;
-  --danger: #b91c1c;
-  --success: #047857;
+  --danger: #f52200;
+  --success: #1ed19e;
   --shadow: rgba(0, 0, 0, 0.1);
   --modal-bg: rgba(0, 0, 0, 0.4);
 }
@@ -83,10 +83,11 @@ header.main-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 20;
+  padding: 5px 20px;
 }
 
-.logo, .btns {
+.logo,
+.btns {
   display: flex;
   gap: 10px;
   align-items: center;
@@ -157,11 +158,10 @@ h3 {
 }
 
 .theme-toggle,
-.settings-toggle {
-  /* position: absolute;
-  top: 20px; */
+.settings-toggle,
+.help-toggle {
   background-color: transparent;
-  border:  none;
+  border: none;
   border-radius: 50%;
   width: 42px;
   height: 42px;
@@ -174,7 +174,8 @@ h3 {
 }
 
 .theme-toggle img,
-.settings-toggle img {
+.settings-toggle img,
+.help-toggle img {
   width: 22px;
   height: 22px;
 }
@@ -214,7 +215,7 @@ h3 {
   color: var(--accent);
   border-bottom: 3px solid var(--accent);
   font-weight: 700;
-  
+
 }
 
 .tab-content,
@@ -314,50 +315,29 @@ input:focus {
 
 .delete-btn {
   background: var(--danger);
-  color: white;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1;
 }
 
 .delete-btn:hover {
-  background: #ef4444;
+  filter: brightness(1.1);
 }
 
 .edit-btn {
   background: var(--success);
-  color: white;
 }
 
-.edit-btn img {
-  height: 65%;
-  width: 65%;
+.edit-btn img,
+.delete-btn img {
+  height: 85%;
+  width: 85%;
+  border-radius: 50%;
 }
 
 .edit-btn:hover {
   background: #10b981;
 }
 
+.calculate-btn,
 .add-btn {
-  width: 100%;
-  padding: 12px;
-  background: var(--accent-dark);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background 0.3s;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.add-btn:hover {
-  background: #3b82f6;
-}
-
-.calculate-btn {
   width: 100%;
   padding: 14px;
   background: linear-gradient(135deg, var(--accent-dark) 0%, #1d4ed8 100%);
@@ -375,7 +355,8 @@ input:focus {
   letter-spacing: 0.2px;
 }
 
-.calculate-btn:hover {
+.calculate-btn:hover,
+.add-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
 }
@@ -702,6 +683,48 @@ input:focus {
   direction: rtl;
 }
 
+.help-content {
+  max-width: 600px !important;
+  max-height: 85vh !important;
+  position: relative;
+}
+
+.close-help-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.help-body {
+  text-align: right;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.help-body h4 {
+  color: var(--accent);
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.help-body ol {
+  padding-right: 22px;
+  margin: 8px 0;
+}
+
+.help-body li {
+  margin-bottom: 6px;
+}
+
+.help-body strong {
+  color: #fbbf24;
+}
+
+.close-btn {
+  background-color: var(--danger) !important;
+}
+
 @media (max-width: 768px) {
   body {
     padding: 65px 14px 14px;
@@ -715,7 +738,7 @@ input:focus {
   .app-wrapper {
     max-width: 100%;
   }
-   
+
   header.main-header {
     padding: 5px 14px;
   }
@@ -815,6 +838,16 @@ input:focus {
     padding: 5px 8px;
   }
 
+
+  .logo,
+  .btns {
+    gap: 5px;
+  }
+
+  .btns {
+    max-width: 80px;
+  }
+
   .input-group label {
     font-size: 0.85rem;
   }
@@ -835,8 +868,8 @@ input:focus {
 }
 
 @media print {
-  .theme-toggle,
-  .settings-toggle,
+
+  header.main-header,
   .tabs,
   .sub-tabs,
   .add-btn,
@@ -889,10 +922,10 @@ input:focus {
     display: block !important;
   }
 
-  body.printing-table-only .container > h1,
-  body.printing-table-only .container > .tabs,
-  body.printing-table-only .container > #tabContents,
-  body.printing-table-only .container > .calculate-btn {
+  body.printing-table-only .container>h1,
+  body.printing-table-only .container>.tabs,
+  body.printing-table-only .container>#tabContents,
+  body.printing-table-only .container>.calculate-btn {
     display: none !important;
   }
 
