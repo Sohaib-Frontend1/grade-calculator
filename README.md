@@ -40,6 +40,7 @@ The application provides a streamlined interface for managing subjects, validati
 - **Responsive Design:** Optimized for various screen sizes, including mobile devices, tablets, and desktop monitors using modern CSS techniques.
 - **Theme Toggle:** Dynamic Dark/Light mode feature to enhance user experience and reduce eye strain.
 - **Interactive Progress Bar:** Features gradient colors to visually represent the score.
+- **Built-in User Guide:** Includes a dedicated help section/button providing clear instructions in Arabic for first-time users, explaining how to navigate and customize their subjects.
 
 ### Export and Sharing
 - **Save Result as Image:** Export the full result card as a high-quality PNG image.
