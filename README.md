@@ -21,6 +21,14 @@ The application provides a streamlined interface for managing subjects, validati
 
 ---
 
+## Screenshots
+
+### Light Mode
+![Grade Calculator - Light Mode](images/light-mode.webp)
+
+### Dark Mode
+![Grade Calculator - Dark Mode](images/dark-mode.png)
+
 ## Key Features
 
 ### Educational Systems Support
