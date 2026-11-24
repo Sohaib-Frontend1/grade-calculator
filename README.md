@@ -25,7 +25,7 @@ The application provides a streamlined interface for managing subjects, validati
 
 ### Educational Systems Support
 - **General Section:** Default subjects include Arabic, English, Mathematics, Science, and Social Studies.
-- **Azhar Section:** Full support for Azhar subjects including Quran, Fiqh, Hadith, Tafsir, Tawhid, Islamic Culture, Arabic branches (Nahw, Sarf, Balagha, Insha, Adab, Mutalaa), and cultural subjects. Defaults to 1st Secondary - Scientific Section.
+- **Azhar Section:** Full support for Azhar subjects including Quran, Fiqh, Hadith, Tafsir, Tawhid, Islamic Culture, Arabic branches (Nahw, Sarf, Balagha, Insha, Adab, Mutalaa), and cultural subjects. **Defaults specifically to the 1st Secondary - Scientific Section (Class of 2024/2025).**
 - **Term Support:** Supports First Term, Second Term, and Full Year calculation.
 - **Section Management:** Add new sections, edit the passing grade percentage, and save settings to local storage.
 
