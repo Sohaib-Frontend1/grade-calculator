@@ -721,9 +721,39 @@ input:focus {
   color: #fbbf24;
 }
 
-.close-btn {
-  background-color: var(--danger) !important;
+.footer {
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 30px;
+  border-top: 2px dashed var(--input-border);
 }
+
+.footer .help-icon {
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  display: inline-block;
+  transform: translateY(30%);
+}
+
+.footer p:first-child {
+  font-family: Alyamama, "Tajawal", "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+.footer p:last-child {
+  font-family: Merhey, "Tajawal", "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+.footer a {
+  color: var(--accent-dark);
+  text-decoration: none;
+  font-family: inherit;
+}
+
+.footer a:hover {
+  color: var(--accent);
+}
+
 
 @media (max-width: 768px) {
   body {
@@ -904,6 +934,8 @@ input:focus {
     border: 2px solid black !important;
     background: white !important;
     color: black !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 
   #grades-table-container {
@@ -972,6 +1004,15 @@ input:focus {
   .grades-table {
     margin-bottom: 20px;
   }
+  
+  .footer {
+    display: none;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 12mm;
 }
 
 /* ============================================================
