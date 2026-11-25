@@ -912,3 +912,5 @@ window.addEventListener("DOMContentLoaded", () => {
   renderMainTabs();
   switchMainTab(activeMainTab);
 });
+
+document.getElementById("currentYear").textContent = new Date().getFullYear();
